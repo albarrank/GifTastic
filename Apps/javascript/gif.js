@@ -50,7 +50,7 @@ $("document").ready(function() {
     //AJAX IS GOING HERE
     var search = prompt();
 
-    var limit = 1;
+    var limit = 4;
 
     var APIKey = "iJg7SL7dckwMoOl3NPOeJ2Hy9pcDrpvw";
 
@@ -61,12 +61,12 @@ $("document").ready(function() {
         method: "GET"
     }).then(function(response) {
         console.log(response);
-        // for (j = 0; j < limit; j++) {
-        //     var imageUrl = response.data[0].images.original.url;
-        //     console.log(imageUrl);
+        for (j = 0; j < limit; j++) {
+            var imageUrl = response.data[j].images.original.url;
+            $("#imageWrapper").append("<img id='img' src=" + imageUrl + ">");
+            console.log(imageUrl);
             
-        // }
+        }
         
-        // $("#imageWrapper").append("<img id='img' src=" + imageUrl + "/>");
       });
 });
