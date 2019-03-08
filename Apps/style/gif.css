@@ -1,0 +1,20 @@
+#imageWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+/* styling for dynamic tags added */
+.contentWrapper {
+    margin: 10px;
+}
+img {
+    width: 300px;
+    height: 150px;
+}
+.button {
+    margin: 10px;
+    color: black;
+    background: yellow;
+}
