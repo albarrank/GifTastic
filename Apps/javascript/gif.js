@@ -84,7 +84,7 @@ $("document").ready(function() {
 
                 // $("#imageWrapper").append("<h3 class='rating'>" + rating + "</h3>");
 
-                var imageUrl = response.data[j].images.original.url;
+                var imageUrl = response.data[j].images.original_still.url;
                 var imageTag = $("<img>");
                 imageTag.attr("src", imageUrl);
                 console.log(imageTag);
@@ -102,15 +102,8 @@ $("document").ready(function() {
         });
 
         
-    
+        
     });
-
-
-   
-
-
-
     
-
-   
+      
 });
