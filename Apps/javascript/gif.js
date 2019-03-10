@@ -48,7 +48,6 @@ $("document").ready(function() {
 
         
         var newLimit = $("#limit").val();
-        console.log(newLimit);
         var text = this.innerHTML;
 
         return ajaxResponse(text,newLimit);
@@ -82,9 +81,7 @@ $("document").ready(function() {
             for (var i = 0; i < gifArray.length; i++) {
                 imageArray.push(gifArray[i]);
             }
-            showGifs(imageArray);
-            changeGifs(imageArray);
-            
+            showGifs(imageArray);            
         }
         
     }
@@ -96,15 +93,12 @@ $("document").ready(function() {
 
         for (var j = 0; j < limit ; j++) {
             var divTag = $("<div class='contentWrapper'>");
-
             var rating =   imageArray[j].rating;
             
             var headTag = $("<h3>");
-            
             headTag.html(rating);
             
             var imageUrl = imageArray[j].images.original_still.url;
-            
             var imageTag = $("<img class='image'>");
             
             imageTag.attr("src", imageUrl);
