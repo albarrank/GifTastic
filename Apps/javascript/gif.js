@@ -44,19 +44,24 @@ $("document").ready(function() {
     $(document).on("click", ".button", function() {
 
         $("#imageWrapper").empty();
+
+
         
+        var newLimit = $("#limit").val();
+        console.log(newLimit);
         var text = this.innerHTML;
-        return ajaxResponse(text);
+
+        return ajaxResponse(text,newLimit);
 
     });
     
 // --------------------------------------------------------------------------------------------------      
-    function ajaxResponse(searchText) {
+    function ajaxResponse(searchText,newLimit) {
         //AJAX IS GOING HERE (MAYBE PUT THIS IN A FUNCTION THAT RETURNS WHAT I WANT)
 
         var search = searchText;
 
-        var limit = 5;
+        var limit = newLimit;
  
         var APIKey = "iJg7SL7dckwMoOl3NPOeJ2Hy9pcDrpvw";
  
@@ -87,7 +92,7 @@ $("document").ready(function() {
 // --------------------------------------------------------------------------------------------    
     function showGifs(imageArray) {
         
-        limit = 2;
+        limit = 10;
 
         for (var j = 0; j < limit ; j++) {
             var divTag = $("<div class='contentWrapper'>");
@@ -124,7 +129,7 @@ $("document").ready(function() {
         SEE IF IT DIDNT MATCH BY THE STILL ONE PERTAINING TO WHAT
         INDEX POSITION IT WAS IN */
         $(document).on("click", ".image", function() {
-            limit = 5;
+            limit = 1;
             compareArray = y;
             var urlArray =[];
             console.log(compareArray);
