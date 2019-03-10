@@ -96,101 +96,45 @@ $("document").ready(function() {
 
         for (var j = 0; j < limit ; j++) {
             var divTag = $("<div class='contentWrapper'>");
+
             var rating =   imageArray[j].rating;
+            
             var headTag = $("<h3>");
+            
             headTag.html(rating);
+            
             var imageUrl = imageArray[j].images.original_still.url;
+            
             var imageTag = $("<img class='image'>");
+            
+            imageTag.attr("src", imageUrl);
+            imageTag.attr('data-still', imageArray[j].images.fixed_height_still.url);
+            imageTag.attr('data-animate', imageArray[j].images.fixed_height.url);
+            imageTag.attr('data-state', 'still');
+            
             divTag.prepend(headTag);
+            
             divTag.append(imageTag);
             
-            if (imageUrl !== imageArray[j].images.original_still.url) {
-                imageUrl = imageArray[j].images.original_still.url;
-                imageTag.attr("src", imageUrl);
-            }
-            else if (imageUrl !== imageArray[j].images.original.url) {
-                imageUrl = imageArray[j].images.original.url;
-                imageTag.attr("src", imageUrl);
-            }
-
             $("#imageWrapper").append(divTag);
 
             
  
         }
+        //  WILL SWITCH OUT URL OF STILL IMAGE IS MOVIN ONE
 
-    }
-
-    //   THIS WAS ESSENTIALLY GOING TO CHANGE THE SOURCE VALUE OF THE IMAGE
-
-    function changeGifs(imageArray) {
-        var y = imageArray;
-    /* HERE I WAS TRYING TO SET AN ARRAY OF THE ANIMATED IMAGE URL'S TO
-        SEE IF IT DIDNT MATCH BY THE STILL ONE PERTAINING TO WHAT
-        INDEX POSITION IT WAS IN */
-        $(document).on("click", ".image", function() {
-            limit = 1;
-            compareArray = y;
-            var urlArray =[];
-            console.log(compareArray);
-            for(k = 0; k < compareArray.length; k++) {
-                urlArray.push(compareArray[k].images.original.url);
+        $('.image').on('click', function () {
+            event.preventDefault();
+            var state = $(this).attr('data-state');
+    
+            if (state === 'still') {
+                $(this).attr('src', $(this).attr('data-animate'));
+                $(this).attr('data-state', 'animate');
+            } else {
+                $(this).attr('src', $(this).attr('data-still'));
+                $(this).attr('data-state', 'still');
             }
-            console.log(urlArray);
-            thisImage = this;
-            for(l = 0; l < urlArray.length; l++) {
-                if ($(this).attr("src") !== urlArray[k]) {
-                    console.log("hello");
-                }
-            }
-            console.log(thisImage);            
-
         });
-
     }
-
-    // function movingGif(animateGif) {
-    //     console.log(animateGif);
-    // }
-
-    
-    // function passArray(imageArray) {
-    //     console.log(imageArray);
-    // }
-    
 
 });
-
-
-
-
-// var result = ('add', 4, 6);
-
-// function calculator (operator, x, y) {
-//     if(operator === 'add') {
-//         var sum = add(x, y);
-//         return sum;
-//     }
-// }
-
-// function add (x, y) {
-//     return x + y;
-// }
-
-
-
-/*
-button click
-    get response from ajax
-
-getresponsfromAjax, async
-    get response from API
-        when response is received, response is an array of objects
-            appendsImages(response)
-
-appendsImages(response)
-    parent div with id of images
-    loop through response
-        create image element
-        append divs url from response to images
-*/
