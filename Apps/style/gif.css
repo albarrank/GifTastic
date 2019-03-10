@@ -1,7 +1,39 @@
+body.style {
+    color: yellow;
+    background: url("../images/goldBackground.jpg");
+    font-family: Comic Sans MS;
+}
+.titleWrapper {
+    display: flex;
+    flex-direction: row;
+}
+#title {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+img.movie {
+    height: 100px;
+    width: 200px;
+}
+#wrapper {
+    height: 500px;
+    background: black;
+    margin-top: 60px;
+}
+#matchWrapper {
+    background: black;
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+}
 #imageWrapper {
+    margin-left: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    
+}
+#sideSection {
+    max-width: 200px;
 }
 
 
@@ -15,6 +47,16 @@ img {
 }
 .button {
     margin: 10px;
+    border: none;
+    border-radius:10px;
+    padding: 10px 9px;
+    text-align: center;
+    color: white;
+    background: rgb(64, 93, 224);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+.button:hover {
+    background: white;
     color: black;
-    background: turquoise;
 }

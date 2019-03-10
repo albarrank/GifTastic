@@ -58,7 +58,7 @@ $("document").ready(function() {
 
 
 
-         //AJAX IS GOING HERE
+         //AJAX IS GOING HERE (MAYBE PUT THIS IN A FUNCTION THAT RETURNS WHAT I WANT)
 
         var search = searchText;
 
@@ -84,6 +84,8 @@ $("document").ready(function() {
 
                 // $("#imageWrapper").append("<h3 class='rating'>" + rating + "</h3>");
 
+                // NEED TO ADD ==> movingGif = response.data[j].images.orignal.url
+
                 var imageUrl = response.data[j].images.original_still.url;
                 var imageTag = $("<img>");
                 imageTag.attr("src", imageUrl);
@@ -107,3 +109,36 @@ $("document").ready(function() {
     
       
 });
+
+
+
+var result = ('add', 4, 6);
+
+function calculator (operator, x, y) {
+    if(operator === 'add') {
+        var sum = add(x, y);
+        return sum;
+    }
+}
+
+function add (x, y) {
+    return x + y;
+}
+
+
+
+/*
+button click
+    get response from ajax
+
+getresponsfromAjax, async
+    get response from API
+        when response is received, response is an array of objects
+            appendsImages(response)
+
+appendsImages(response)
+    parent div with id of images
+    loop through response
+        create image element
+        append divs url from response to images
+*/
